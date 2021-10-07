@@ -16,21 +16,68 @@
   <div id="all-content" style="display: none;">
     <ul id="menu" class="header">
       <li><a href="" id="about">About</a></li>
-      <li><a href="" id="ex1">Ex1</a></li>
-      <li><a href="" id="ex2">Ex2</a></li>
-      <li><a href="" id="ex3">Ex3</a></li>
+      <li><a href="" id="ex1">Person</a></li>
+      <li><a href="" id="ex2">Hobbies</a></li>
+      <li><a href="" id="ex3">Addresses</a></li>
     </ul>
 
     <div class="content">
 
       <!-- This is were you should place your basic HTML for exercise-1 -->
-      <div id="ex1_html" style="display:none;">
-        <h3>Exercise 1</h3>
-        <p>Add your basic HTML for Exercise 1 here</p>
-        <ul id="jokes"></ul>
+      <div id="person" style="display:none;">
+        <h3>Person</h3>
+        <p>List of all persons</p>
+        <table id="persons" class="table table-striped">
+          <thead class="thead-dark">
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Jønke</td>
+              <td>
+                <input id=editbtn type="button" value="Edit" />
+              </td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Blondie</td>
+              <td>
+                <input id=editbtn type="button" value="Edit" />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+
+
+        <div id="editmodal" class="modal" tabindex="-1" role="dialog">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Modal person</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p>Please edit fields and press save changes</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
 
       </div>
-      <!-- End of HTML for exercise-1 -->
+      <!-- End of HTML for Person -->
 
 
 
@@ -47,7 +94,7 @@
         <h3>Ex-3</h3>
         <p>Add your basic HTML for Exercise 3 here</p>
 
-        <div class="row" style="min-height: 5em;">
+        <div class="row" style="min-height: 5em;"">
       <div class=" col-md-8 pre-scrollable" style="background-color: lightgrey;">
           <h5>All Users</h5>
           <table class="table">
