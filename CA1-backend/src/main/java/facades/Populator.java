@@ -41,5 +41,6 @@ public class Populator {
         em.persist(a1);
         em.getTransaction().commit();
         em.close();
+        
     }
 }
