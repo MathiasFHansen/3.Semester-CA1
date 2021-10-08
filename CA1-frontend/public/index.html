@@ -31,26 +31,19 @@
           <thead class="thead-dark">
             <tr>
               <th>ID</th>
-              <th>Name</th>
+              <th>Firstname</th>
+              <th>Lastname</th>
+              <th>Phone</th>
+              <th>Street</th>
+              <th>Zip</th>
+              <th>City</th>
               <th></th>
+
             </tr>
           </thead>
 
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>Jønke</td>
-              <td>
-                <input id=editbtn type="button" value="Edit" />
-              </td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Blondie</td>
-              <td>
-                <input id=editbtn type="button" value="Edit" />
-              </td>
-            </tr>
+          <tbody id="tablerows">
+
           </tbody>
         </table>
 
@@ -67,14 +60,47 @@
               </div>
               <div class="modal-body">
                 <p>Please edit fields and press save changes</p>
+
+                <div class="form-group">
+                  <label for="id">ID</label>
+                  <input id="edit_id" name="id" type="text" class="form-control" />
+                </div>
+                <div class="form-group">
+                  <label for="fName" name="fName">First name</label>
+                  <input id="fName" name="fName" type="text" class="form-control" />
+                </div>
+                <div class="form-group">
+                  <label for="lName" name="lName">Last name</label>
+                  <input id="lName" name="lName" type="text" class="form-control" />
+                </div>
+                <div class="form-group">
+                  <label for="phone" name="phone">Phone</label>
+                  <input id="phone" name="phone" type="text" class="form-control" />
+                </div>
+                <div class="form-group">
+                  <label for="street" name="street">Street</label>
+                  <input id="street" name="street" type="text" class="form-control" />
+                </div>
+                <div class="form-group">
+                  <label for="zip" name="zip">Zip</label>
+                  <input id="zip" name="zip" type="text" class="form-control" />
+                </div>
+                <div class="form-group">
+                  <label for="city" name="city">City</label>
+                  <input id="city" name="city" type="text" class="form-control" />
+                </div>
+
+
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button id="modal-edit-save-btn" type="button" class="btn btn-primary">Save changes</button>
               </div>
             </div>
           </div>
         </div>
+
+
 
       </div>
       <!-- End of HTML for Person -->
