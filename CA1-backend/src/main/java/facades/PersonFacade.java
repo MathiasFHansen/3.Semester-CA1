@@ -105,10 +105,23 @@ public class PersonFacade implements IPersonFacade {
         try {
             em.getTransaction().begin();
             Person tempPerson = em.find(Person.class, newPDto.getId());
+            Address tempAddress = em.find(Address.class, newPDto.getAddress().getId());
+            CityInfo tempCityInfo = em.find(CityInfo.class, newPDto.getAddress().getCityInfo().getZipCode());
+
+            tempAddress.setStreet(newPDto.getAddress().getStreet());
+            tempAddress.setAdditionalInfo(newPDto.getAddress().getAdditionalInfo());
+
+            tempAddress.getCityInfo().removeAddress(tempAddress);
+
+
+            tempCityInfo.addAddress(tempAddress);
 
             tempPerson = tempPerson.updateFromDto(newPDto);
 
+            em.merge(tempAddress);
+            em.merge(tempPerson);
             em.getTransaction().commit();
+            System.out.println(tempPerson);
             return new PersonDTO(tempPerson);
         } finally {
             em.close();

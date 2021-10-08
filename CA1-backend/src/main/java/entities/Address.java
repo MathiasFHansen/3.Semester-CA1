@@ -15,7 +15,7 @@ public class Address implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @ManyToOne
+    @ManyToOne ( cascade = CascadeType.PERSIST)
     private CityInfo cityInfo;
 
     @OneToMany(mappedBy = "address")

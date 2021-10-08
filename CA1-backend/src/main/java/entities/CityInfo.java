@@ -19,13 +19,20 @@ public class CityInfo implements Serializable {
 
     private String city;
 
-    @OneToMany (mappedBy = "cityInfo", cascade = CascadeType.PERSIST)
+    @OneToMany
     List<Address> addresses;
 
     public CityInfo(String zip, String city) {
         this.zipCode = zip;
         this.city = city;
         addresses = new ArrayList<>();
+    }
+
+    public void removeAddress(Address address) {
+        if (address != null) {
+            addresses.remove(address);
+            address.setCityInfo(null);
+        }
     }
 
     public void addAddress(Address address) {

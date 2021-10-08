@@ -50,7 +50,7 @@ public class Person implements Serializable {
         this.lastName = pDto.getLastName();
         this.email = pDto.getEmail();
         this.phones = convertPhoneDtoToEntity(pDto.getPhones());
-        this.address = convertAddressDtoToEntity(pDto.getAddress());
+
 
 
         return this;
@@ -68,7 +68,7 @@ public class Person implements Serializable {
         return newPhoneEntityList;
     }
 
-    private Address convertAddressDtoToEntity(AddressDTO aDto) {
+    public Address convertAddressDtoToEntity(AddressDTO aDto) {
         Address newAddressEntity = new Address(aDto.getStreet(), aDto.getAdditionalInfo());
 
         return newAddressEntity;
