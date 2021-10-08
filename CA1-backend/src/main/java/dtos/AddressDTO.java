@@ -69,4 +69,14 @@ public class AddressDTO {
     public int hashCode() {
         return Objects.hash(id, street, additionalInfo);
     }
+
+    @Override
+    public String toString() {
+        return "AddressDTO{" +
+                "id=" + id +
+                ", street='" + street + '\'' +
+                ", additionalInfo='" + additionalInfo + '\'' +
+                ", cityInfo=" + cityInfo +
+                '}';
+    }
 }

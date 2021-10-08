@@ -86,12 +86,33 @@ public class PersonDTO {
         this.hobbies = hobbies;
     }
 
+    public List<PhoneDTO> getPhones() {
+        return phones;
+    }
+
+    public void setPhones(List<PhoneDTO> phones) {
+        this.phones = phones;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         PersonDTO personDTO = (PersonDTO) o;
         return id == personDTO.id && firstName.equals(personDTO.firstName) && lastName.equals(personDTO.lastName) && email.equals(personDTO.email);
+    }
+
+    @Override
+    public String toString() {
+        return "PersonDTO{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", address=" + address +
+                ", hobbies=" + hobbies +
+                ", phones=" + phones +
+                '}';
     }
 
     @Override

@@ -71,6 +71,7 @@ public class PersonResource {
     public Response updatePerson (@PathParam("id")int id, String person) {
         PersonDTO pDTO = gson.fromJson(person, PersonDTO.class);
         pDTO.setId(id);
+        System.out.println(pDTO.toString());
         pDTO = facade.editPerson(pDTO);
         return Response.ok(gson.toJson(pDTO), MediaType.APPLICATION_JSON).build();
     }

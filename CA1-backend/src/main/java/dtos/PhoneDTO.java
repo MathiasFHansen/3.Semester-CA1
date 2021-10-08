@@ -69,4 +69,13 @@ public class PhoneDTO {
     public int hashCode() {
         return Objects.hash(id, number, description);
     }
+
+    @Override
+    public String toString() {
+        return "PhoneDTO{" +
+                "id=" + id +
+                ", number='" + number + '\'' +
+                ", description='" + description + '\'' +
+                '}';
+    }
 }

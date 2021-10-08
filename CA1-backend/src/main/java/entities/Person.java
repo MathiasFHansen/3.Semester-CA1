@@ -1,6 +1,9 @@
 package entities;
 
+import dtos.AddressDTO;
+import dtos.CityInfoDTO;
 import dtos.PersonDTO;
+import dtos.PhoneDTO;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -28,7 +31,7 @@ public class Person implements Serializable {
     @ManyToMany(mappedBy = "persons", cascade = CascadeType.ALL)
     List<Hobby> hobbies;
 
-    @ManyToOne
+    @ManyToOne (cascade = CascadeType.ALL)
     private Address address;
 
     @OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
@@ -46,7 +49,35 @@ public class Person implements Serializable {
         this.firstName = pDto.getFirstName();
         this.lastName = pDto.getLastName();
         this.email = pDto.getEmail();
+        this.phones = convertPhoneDtoToEntity(pDto.getPhones());
+        this.address = convertAddressDtoToEntity(pDto.getAddress());
+
+
         return this;
+    }
+
+    private List<Phone> convertPhoneDtoToEntity(List<PhoneDTO> pDto) {
+        List<Phone> newPhoneEntityList = new ArrayList<>();
+        for (PhoneDTO dto : pDto) {
+            Phone phone = new Phone(
+                    dto.getNumber(),
+                    dto.getDescription());
+
+            newPhoneEntityList.add(phone);
+        }
+        return newPhoneEntityList;
+    }
+
+    private Address convertAddressDtoToEntity(AddressDTO aDto) {
+        Address newAddressEntity = new Address(aDto.getStreet(), aDto.getAdditionalInfo());
+
+        return newAddressEntity;
+    }
+
+    private CityInfo convertCityInfoDtoToEntity(CityInfoDTO cDto) {
+        CityInfo newCityInfoEntity = new CityInfo(cDto.getZipCode(), cDto.getCity());
+
+        return newCityInfoEntity;
     }
 
     public void addPhone(Phone phone) {

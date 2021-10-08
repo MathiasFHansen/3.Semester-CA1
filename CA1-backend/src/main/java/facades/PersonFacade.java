@@ -105,7 +105,9 @@ public class PersonFacade implements IPersonFacade {
         try {
             em.getTransaction().begin();
             Person tempPerson = em.find(Person.class, newPDto.getId());
+
             tempPerson = tempPerson.updateFromDto(newPDto);
+
             em.getTransaction().commit();
             return new PersonDTO(tempPerson);
         } finally {

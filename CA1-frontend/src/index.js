@@ -38,7 +38,9 @@ function editPerson(id)
     document.getElementById("edit_id").value = data.id;
     document.getElementById("fName").value = data.firstName;
     document.getElementById("lName").value = data.lastName;
-    document.getElementById("phone").value = data.phones[0].number;
+    document.getElementById("phone").value = data.phones[0].number;  
+    document.getElementById("phone_id").value = data.phones[0].id; 
+    document.getElementById("address_id").value = data.address.id;
     document.getElementById("street").value = data.address.street;
     document.getElementById("zip").value = data.address.cityInfo.zipCode;
     document.getElementById("city").value = data.address.cityInfo.city;
@@ -67,15 +69,32 @@ function updatePerson()
    }*/
 
    const id = document.getElementById("edit_id").value;
+   
    const personObject = {
      id: id,
-     fName: document.getElementById("fName").value,
-     lName: document.getElementById("lName").value,
-     phone: document.getElementById("phone").value,
-     street: document.getElementById("street").value,
-     zip: document.getElementById("zip").value,
-     city: document.getElementById("city").value
+     email: 'TODO@gmail.com',
+     firstName: document.getElementById("fName").value,
+     lastName: document.getElementById("lName").value,
+     phones: [
+      {
+        id: document.getElementById("phone_id").value,
+        number: document.getElementById("phone").value,
+        description: 'Cell'
+       }
+    ],
+     address: {
+       id: document.getElementById("address_id").value,
+      street: document.getElementById("street").value,
+      additionalInfo: '4.12',
+
+       cityInfo: {
+        zip: document.getElementById("zip").value,
+        city: document.getElementById("city").value
+       }
+     }
    }
+
+   console.log(personObject);
 
    const options = makeOptions('PUT', personObject);
 
