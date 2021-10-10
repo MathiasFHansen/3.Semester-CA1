@@ -14,6 +14,8 @@ document.getElementById("all-content").style.display = "block";
 
 let editModalElement = document.getElementById("editmodal");
 let editModal = new bootstrap.Modal(editModalElement);
+let addModalElement = document.getElementById("addmodal");
+let addModal = new bootstrap.Modal(addModalElement);
 
 document.getElementById("tablerows").addEventListener("click", (e) => {
   e.preventDefault();
@@ -29,6 +31,51 @@ document.getElementById("tablerows").addEventListener("click", (e) => {
       break;
   }
 });
+
+document.getElementById("add-person-btn").addEventListener("click", (e) => {
+  e.preventDefault();
+  addModal.toggle();
+  //addPerson()
+});
+
+document.getElementById("modal-add-save-btn").addEventListener("click", (e) => {
+  const node = e.target;
+  addPerson();
+});
+
+function addPerson() {
+  const personObject = {
+    firstName: document.getElementById("addfirstName").value,
+    lastName: document.getElementById("addlastName").value,
+    email: document.getElementById("addemail").value,
+    address: {
+      street: document.getElementById("addstreet").value,
+      additionalInfo: "TODO",
+      cityInfo: {
+        zipCode: document.getElementById("addzip").value,
+        city: "KBH",
+      },
+    },
+    hobbies: [5],
+    phones: [
+      {
+        number: document.getElementById("addphone").value,
+        description: "TODO",
+      },
+    ],
+  };
+  console.log(personObject);
+
+  const options = makeOptions("POST", personObject);
+
+  fetch(`${SERVER_URL}/person/`, options)
+    .then(handleHttpErrors)
+    .then((data) => {
+      addModal.toggle();
+      getAllPersons();
+    })
+    .catch(errorHandling);
+}
 
 function editPerson(id) {
   fetch(`${SERVER_URL}/person/${id}`)

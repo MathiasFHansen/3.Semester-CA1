@@ -135,6 +135,102 @@
               </div>
             </div>
           </div>
+
+          <div id="addmodal" class="modal" tabindex="-1">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Add Person</h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <p>Please add person information and press Save changes</p>
+
+                  <div class="form-group">
+                    <label for="addfirstName">First Name</label>
+                    <input
+                      id="addfirstName"
+                      name="addfirstName"
+                      type="text"
+                      class="form-control"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="addlastName">Last Name</label>
+                    <input
+                      id="addlastName"
+                      name="addlastName"
+                      type="text"
+                      class="form-control"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="addemail">Email</label>
+                    <input
+                      id="addemail"
+                      name="addemail"
+                      type="text"
+                      class="form-control"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="addphone">Phone</label>
+                    <input
+                      id="addphone"
+                      name="addphone"
+                      type="text"
+                      class="form-control"
+                    />
+                    <input id="addphone_id" type="hidden" value="" />
+                  </div>
+                  <div class="form-group">
+                    <label for="addstreet">Street</label>
+                    <input
+                      id="addstreet"
+                      name="addstreet"
+                      type="text"
+                      class="form-control"
+                    />
+                    <input id="addaddress_id" type="hidden" value="" />
+                  </div>
+                  <div class="form-group">
+                    <label for="addzip">Zip</label>
+                    <input
+                      id="addzip"
+                      name="addzip"
+                      type="text"
+                      class="form-control"
+                    />
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                  <button
+                    id="modal-add-save-btn"
+                    type="button"
+                    class="btn btn-primary"
+                  >
+                    Add Person
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button id="add-person-btn" type="button" class="btn btn-primary">
+            Add Person
+          </button>
         </div>
         <!-- End of HTML for Person -->
 
