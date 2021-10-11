@@ -28,6 +28,7 @@ public class PersonFacadeTest {
     private static Address address1, address2;
     private static CityInfo ci1, ci2, ci3;
 
+    
     public PersonFacadeTest() {
     }
 
